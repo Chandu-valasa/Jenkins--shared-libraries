@@ -1,9 +1,9 @@
 /* groovylint-disable LineLength */
 /* groovylint-disable-next-line NglParseError */
-def call(Docker, dockerpass, dockeruser, imagename, tag){
+def call(Docker, dockerpass, dockeruser){
     withCredentials([usernamePassword(credentialsId:"Docker",passwordVariable:"dockerpass",usernameVariable:"dockeruser")]) {
                 sh 'docker login -u ${dockeruser} -p ${dockerpass}'
-                sh 'docker tag ${imagename}:${tag} ${dockeruser}/${imagename}:${tag}'
+                sh 'docker tag shekar:latest ${dockeruser}/shekar:latest'
                 sh 'docker push ${dockeruser}/${version}'
                }
 }
