@@ -1,3 +1,3 @@
-def call(imaage,tag){
+def call(image,tag){
   docker build -t ${image}:${tag} .
 }
